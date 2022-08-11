@@ -1,0 +1,5 @@
+1- CHECK THE MAMP (file name + map)
+	- 	to check file name(.ber) -->  use fd and read and compare the last 4 car with ".ber"
+	-	to check map	--> use ft_strcher to know if Exit - player - coins - free space exist in the map
+						--> should lenth != width
+						--> walls in all sides

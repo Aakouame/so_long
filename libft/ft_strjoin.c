@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akouame <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: akouame <akouame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 00:55:27 by akouame           #+#    #+#             */
-/*   Updated: 2022/06/03 11:58:44 by akouame          ###   ########.fr       */
+/*   Updated: 2022/08/18 18:46:24 by akouame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -30,7 +32,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	j = 0;
-	t[i++] = ' ';
 	while (s2[j])
 	{
 		t[i++] = (char)s2[j];

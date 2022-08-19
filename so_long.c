@@ -58,15 +58,19 @@
 
 int main (int argc, char **argv)
 {
+	t_data	data;
+
 	if (argc == 2 && ft_check_file(argv))
 	{
-		printf("mok 2\n");
-		if (ft_check_map(argv[1]))
+		if (ft_check_map(argv[1]) != 0)
 		{
+			data.size = ft_size(argv[1]);
 			printf("rak nadi canadi \n");
 		}
+		else
+			printf("3ayan 3ayan \n");
 	}
 	else
-		printf("3ayan 3ayaan \n");
+		ft_putstr_fd("Error  : Check ur file name !\n",1);
 	return (0);
 }

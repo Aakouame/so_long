@@ -1,13 +1,7 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/akouame/Desktop/SO_LONG_git'
 cc -Wall -Wextra -Werror   -c -o so_long.o so_long.c
- 
-cc -Wall -Wextra -Werror   -c -o get_next_line/get_next_line.o get_next_line/get_next_line.c
-cc -Wall -Wextra -Werror   -c -o get_next_line/get_next_line_utils.o get_next_line/get_next_line_utils.c
-cc -Wall -Wextra -Werror   -c -o check.o check.c
- 
-make -C ./libft
-# cc so_long.o ./get_next_line/get_next_line.o ./get_next_line/get_next_line_utils.o check.o -Wall -Wextra -Werror -Imlx -c libft -o libft/libft.a
-cc so_long.o ./get_next_line/get_next_line.o ./get_next_line/get_next_line_utils.o check.o ./libft/libft.a -lmlx -framework OpenGL -framework AppKit -o so_long
+cc -Wall -Wextra -Werror   -c -o build.o build.c
+cc so_long.o ./get_next_line/get_next_line.o ./get_next_line/get_next_line_utils.o check.o help_check.o build.o ./libft/libft.a -lmlx -framework OpenGL -framework AppKit -o so_long
 make: Leaving directory `/Users/akouame/Desktop/SO_LONG_git'
  

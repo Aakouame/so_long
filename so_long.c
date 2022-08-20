@@ -55,6 +55,24 @@
 // 	mlx_loop(mlx.init);
 // }
 
+			// mlx_put_image_to_window(data.init, data.wind, data.img_coin, 0, 0);
+int key_hook(int key_code, t_data *data)
+{
+	data->key = key_code;
+	if (key_code ==  2)
+		ft_mov_right(*data, data->map_splited, &data->coin);
+	// if (key_code == 1)
+	// 	ft_mov_down();
+	if (key_code == 0)
+		ft_mov_left(*data, data->map_splited, &data->coin);
+	// if (key_code == 13)
+	// 	ft_mov_up();
+	printf ("Coin = %d\n", data->coin);
+	data->cpt++;
+	if (key_code == 53)
+		exit(0);
+	return (0);
+}
 
 int main (int argc, char **argv)
 {
@@ -65,7 +83,16 @@ int main (int argc, char **argv)
 		if (ft_check_map(argv[1]) != 0)
 		{
 			data.size = ft_size(argv[1]);
+			ft_initial(&data);
+			
+			data.map_splited = ft_map(argv[1]);
+			data.max_c = ft_all_coins(data.map_splited);
+
+			ft_build_map(data.map_splited, data);
+			mlx_key_hook(data.wind, key_hook, &data);
+			//ft_play(data, map_splited, argv[1]);
 			printf("rak nadi canadi \n");
+			mlx_loop(data.init);
 		}
 		else
 			printf("3ayan 3ayan \n");
@@ -74,3 +101,11 @@ int main (int argc, char **argv)
 		ft_putstr_fd("Error  : Check ur file name !\n",1);
 	return (0);
 }
+
+			// mlx_put_image_to_window(data.init, data.wind, data.img_fre_spc, 32, 32);
+			// mlx_put_image_to_window(data.init, data.wind, data.img_fre_spc, 32 * 2, 32 * 2);
+			// mlx_put_image_to_window(data.init, data.wind, data.img_player_down, 32, 32);
+			// mlx_put_image_to_window(data.init, data.wind, data.img_player_up, 2 * 32, 2 * 32);
+			// mlx_put_image_to_window(data.init, data.wind, data.img_wall, 100, 100);
+			// // mlx_put_image_to_window(data.init, data.wind, data.img_coin, 0, 0);
+			// // ft_initial(&data);

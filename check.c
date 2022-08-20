@@ -6,7 +6,7 @@
 /*   By: akouame <akouame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:52:38 by akouame           #+#    #+#             */
-/*   Updated: 2022/08/19 15:44:16 by akouame          ###   ########.fr       */
+/*   Updated: 2022/08/20 21:28:04 by akouame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,18 +98,17 @@ int	ft_length(char **map_splited)
 	return (l);
 }
 
-int	ft_split_map(char *map)
+int	ft_split_map(char *file)
 {
 	t_size		max;
 	t_size		indx;
 	char		**map_splited;
 	
-	map_splited = NULL;
 	indx.y = 0;
-	map_splited = ft_split(map, '\n');
+	map_splited = ft_map(file);
 	max.x = ft_strlen(map_splited[0]) - 1;
 	max.y = ft_length(map_splited) - 1;
-	if ((max.x < 3) || (max.y < 3))
+	if ((max.x <= 3) && (max.y <= 3))
 		return (1);
 	while(map_splited[indx.y])
 	{
@@ -139,7 +138,7 @@ int	ft_check_map(char *file)
 		return (0);
 	if (ft_check_elem(map) != 0) // Error elements
 		return (0);
-	if (ft_split_map(map) != 0)
+	if (ft_split_map(file) != 0)
 		return (0);
 	free(map);
 	return (1);
@@ -147,14 +146,10 @@ int	ft_check_map(char *file)
 
 t_size	ft_size(char *file)
 {
-	char		*map;
 	t_size		max;
 	char		**map_splited;
-	
-	map = NULL;
-	map = ft_add_str(map, file);
-	map_splited = NULL;
-	map_splited = ft_split(map, '\n');
+
+	map_splited = ft_map(file);
 	max.x = ft_strlen(map_splited[0]);
 	max.y = ft_length(map_splited);
 	return(max);

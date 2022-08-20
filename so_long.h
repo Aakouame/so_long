@@ -6,7 +6,7 @@
 /*   By: akouame <akouame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 21:01:54 by akouame           #+#    #+#             */
-/*   Updated: 2022/08/19 16:58:36 by akouame          ###   ########.fr       */
+/*   Updated: 2022/08/20 21:26:30 by akouame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,34 @@ typedef struct	s_data
 {
 	void	*img_wall;
 	char	*name_wall;
-	void	*img_player;
-	char	*name_player;
+	void	*img_player_face;
+	char	*name_player_face;
+	void	*img_player_left;
+	char	*name_player_left;
+	void	*img_player_right;
+	char	*name_player_right;
+	void	*img_player_up;
+	char	*name_player_up;
+	void	*img_player_down;
+	char	*name_player_down;
 	void	*img_coin;
 	char	*name_coin;
 	void	*img_exit;
 	char	*name_exit;
 	void	*img_fre_spc;
 	char	*name_free_spc;
-	
+	int		width;
+	int		length;
 	void		*init;
 	void		*wind;
+	int			key;
+	char		**map_splited;
+	int			coin;
+	int			max_c;
+	int			cpt;
 	t_size		size;
+
+	
 	
 }	t_data;
 
@@ -62,24 +78,24 @@ enum {
 	ON_EXPOSE = 12,
 	ON_DESTROY = 17
 };
-// void	ft_initial(t_elem_game	*elem, t_mlx mlx, t_data_img img, t_size size);
 
-// typedef struct s_mov_p
-// {
-	
-// }
-int				create_trgb(unsigned char t, unsigned char r, unsigned char g, unsigned char b);
-unsigned char	get_t(int trgb);
-unsigned char	get_r(int trgb);
-unsigned char	get_b(int trgb);
-unsigned char	get_g(int trgb);
+// check.c
 int	ft_check_file(char **argv);
 int	ft_check_map(char *file);
 int	ft_check_exit(char *str, char c);
 char	*ft_add_str(char *map, char *file);
 int	ft_length(char **map_splited);
 t_size	ft_size(char *file);
+//build.c
 void	ft_initial(t_data *data);
+void	ft_build_map(char **map_splited, t_data data);
+char	**ft_map(char *file);
+//play.c
+t_size	ft_position(char **map_splited);
+void	ft_mov_right(t_data data, char **map_splited, int *coin);
+void	ft_play(t_data data, char **map_splited);
+int		ft_all_coins(char **map_splited);
+void	ft_mov_left(t_data data, char **map_splited, int *coin);
 
 
 #endif

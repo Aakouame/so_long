@@ -7,8 +7,9 @@ cc -Wall -Wextra -Werror   -c -o check.o check.c
 cc -Wall -Wextra -Werror   -c -o help_check.o help_check.c
 cc -Wall -Wextra -Werror   -c -o build.o build.c
 cc -Wall -Wextra -Werror   -c -o play.o play.c
+cc -Wall -Wextra -Werror   -c -o help_play.o help_play.c
 make -C ./libft
-# cc so_long.o ./get_next_line/get_next_line.o ./get_next_line/get_next_line_utils.o check.o help_check.o build.o play.o -Wall -Wextra -Werror -Imlx -c libft -o libft/libft.a
-cc so_long.o ./get_next_line/get_next_line.o ./get_next_line/get_next_line_utils.o check.o help_check.o build.o play.o ./libft/libft.a -lmlx -framework OpenGL -framework AppKit -o so_long
+# cc so_long.o ./get_next_line/get_next_line.o ./get_next_line/get_next_line_utils.o check.o help_check.o build.o play.o help_play.o -Wall -Wextra -Werror -Imlx -c libft -o libft/libft.a
+cc so_long.o ./get_next_line/get_next_line.o ./get_next_line/get_next_line_utils.o check.o help_check.o build.o play.o help_play.o ./libft/libft.a -lmlx -framework OpenGL -framework AppKit -o so_long
 make: Leaving directory `/Users/akouame/Desktop/SO_LONG_git'
  

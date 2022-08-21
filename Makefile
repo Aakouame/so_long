@@ -6,7 +6,7 @@
 #    By: akouame <akouame@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 21:02:23 by akouame           #+#    #+#              #
-#    Updated: 2022/08/20 16:57:43 by akouame          ###   ########.fr        #
+#    Updated: 2022/08/21 13:43:20 by akouame          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,7 @@ SRCS = so_long.c\
 		help_check.c\
 		build.c\
 		play.c\
-
-		
+		help_play.c\
 		
 OBJS = $(SRCS:.c=.o)
 

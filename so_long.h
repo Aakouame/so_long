@@ -6,7 +6,7 @@
 /*   By: akouame <akouame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 21:01:54 by akouame           #+#    #+#             */
-/*   Updated: 2022/08/20 21:26:30 by akouame          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:41:00 by akouame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,20 +82,26 @@ enum {
 // check.c
 int	ft_check_file(char **argv);
 int	ft_check_map(char *file);
-int	ft_check_exit(char *str, char c);
 char	*ft_add_str(char *map, char *file);
 int	ft_length(char **map_splited);
 t_size	ft_size(char *file);
+
+// help_check.c
+int	ft_check_exist(char *str, char c);
+void	ft_free_map(char **map_splited);
+int	ft_hep_check_split(char **map_splited, t_size indx, t_size max);
 //build.c
 void	ft_initial(t_data *data);
 void	ft_build_map(char **map_splited, t_data data);
 char	**ft_map(char *file);
 //play.c
-t_size	ft_position(char **map_splited);
-void	ft_mov_right(t_data data, char **map_splited, int *coin);
-void	ft_play(t_data data, char **map_splited);
+void	ft_mov_right(t_data *data, char **map_splited, int *coin);
 int		ft_all_coins(char **map_splited);
-void	ft_mov_left(t_data data, char **map_splited, int *coin);
+void	ft_mov_left(t_data *data, char **map_splited, int *coin);
+//help_play.c
+t_size	ft_position(char **map_splited);
+void	ft_mov_down(t_data *data, char **map_splited, int *coin);
+void	ft_mov_up(t_data *data, char **map_splited, int *coin);
 
 
 #endif

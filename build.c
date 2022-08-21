@@ -6,7 +6,7 @@
 /*   By: akouame <akouame@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 14:20:36 by akouame           #+#    #+#             */
-/*   Updated: 2022/08/20 21:21:17 by akouame          ###   ########.fr       */
+/*   Updated: 2022/08/21 15:08:57 by akouame          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,21 @@ void	ft_initial(t_data *data)
 	data->key = -1;
 	data->cpt = 0;
 }
+
+void	ft_put_player(t_data data, t_size index)
+{
+	if (data.key == -1)
+						mlx_put_image_to_window(data.init, data.wind, data.img_player_face, 32 * (index.x), 32 * index.y);
+					if (data.key == 2)
+						mlx_put_image_to_window(data.init, data.wind, data.img_player_right, 32 * (index.x), 32 * index.y);
+					if (data.key == 1)
+						mlx_put_image_to_window(data.init, data.wind, data.img_player_down, 32 * (index.x), 32 * index.y);
+					if (data.key == 0)
+						mlx_put_image_to_window(data.init, data.wind, data.img_player_left, 32 * (index.x), 32 * index.y);
+					if (data.key == 13)
+						mlx_put_image_to_window(data.init, data.wind, data.img_player_up, 32 * (index.x), 32 * index.y);
+}
+
 void	ft_put_elem(char **map_splited, t_data data, t_size index)
 {
 	while (map_splited[index.y])
@@ -47,7 +62,7 @@ void	ft_put_elem(char **map_splited, t_data data, t_size index)
 				if (map_splited[index.y][index.x] == 'E')
 					mlx_put_image_to_window(data.init, data.wind, data.img_exit, 32 * (index.x), 32 * index.y);
 				if (map_splited[index.y][index.x] == 'P')
-					mlx_put_image_to_window(data.init, data.wind, data.img_player_face, 32 * (index.x), 32 * index.y);
+					ft_put_player(data, index);
 				index.x++;
 			}
 			index.y++;

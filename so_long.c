@@ -56,21 +56,31 @@
 // }
 
 			// mlx_put_image_to_window(data.init, data.wind, data.img_coin, 0, 0);
+int	ft_exit(t_data data)
+{	
+	(void) data;
+	exit(0);
+	return (0);
+}
+
 int key_hook(int key_code, t_data *data)
 {
 	data->key = key_code;
 	if (key_code ==  2)
-		ft_mov_right(*data, data->map_splited, &data->coin);
-	// if (key_code == 1)
-	// 	ft_mov_down();
+		ft_mov_right(data, data->map_splited, &data->coin);
+	if (key_code == 1)
+		ft_mov_down(data, data->map_splited, &data->coin);
 	if (key_code == 0)
-		ft_mov_left(*data, data->map_splited, &data->coin);
-	// if (key_code == 13)
-	// 	ft_mov_up();
-	printf ("Coin = %d\n", data->coin);
-	data->cpt++;
+		ft_mov_left(data, data->map_splited, &data->coin);
+	if (key_code == 13)
+		ft_mov_up(data, data->map_splited, &data->coin);
+	// printf ("key --> = %d\n", key_code);
+	ft_putstr_fd("MOVES : ", 1);
+	ft_putnbr_fd(data->cpt, 1);
 	if (key_code == 53)
-		exit(0);
+		{
+			exit(0);
+		}
 	return (0);
 }
 
@@ -90,7 +100,8 @@ int main (int argc, char **argv)
 
 			ft_build_map(data.map_splited, data);
 			mlx_key_hook(data.wind, key_hook, &data);
-			//ft_play(data, map_splited, argv[1]);
+			mlx_hook(data.wind, 17, 1L << 0, ft_exit, &data);
+			mlx_hook(data.wind, 2, 0L, key_hook, &data);
 			printf("rak nadi canadi \n");
 			mlx_loop(data.init);
 		}
@@ -99,6 +110,11 @@ int main (int argc, char **argv)
 	}
 	else
 		ft_putstr_fd("Error  : Check ur file name !\n",1);
+	
+	while (1)
+	{
+
+	}
 	return (0);
 }
 

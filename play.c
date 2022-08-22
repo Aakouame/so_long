@@ -41,7 +41,6 @@ void	ft_help_right(t_data *data, char **map_splited, int *coin, t_size indx_p)
 		map_splited[indx_p.y][indx_p.x] = '0';
 		map_splited[indx_p.y][indx_p.x + 1] = 'P';
 		(data->cpt)++;
-
 		mlx_clear_window(data->init, data->wind);
 		ft_build_map(map_splited, *data);
 	}
@@ -51,7 +50,6 @@ void	ft_help_right(t_data *data, char **map_splited, int *coin, t_size indx_p)
 		map_splited[indx_p.y][indx_p.x + 1] = 'P';
 		(*coin)++;
 		(data->cpt)++;
-
 		mlx_clear_window(data->init, data->wind);
 		ft_build_map(map_splited, *data);
 	}
@@ -62,18 +60,15 @@ void	ft_mov_right(t_data *data, char **map_splited, int *coin)
 	t_size	indx_p;
 
 	indx_p = ft_position(map_splited);
-	printf ("we are in ft_mov_right !\n");
 	if (map_splited[indx_p.y][indx_p.x + 1] == 'E' && *coin != data->max_c)
 		return ;
 	if (map_splited[indx_p.y][indx_p.x + 1] == '1')
 		return ;
 	if ((*coin) == data->max_c && map_splited[indx_p.y][indx_p.x + 1] == 'E')
 	{
-		printf ("hola\n\n");
 		map_splited[indx_p.y][indx_p.x] = '0';
 		map_splited[indx_p.y][indx_p.x] = 'E';
 		(data->cpt)++;
-
 		mlx_clear_window(data->init, data->wind);
 		ft_build_map(map_splited, *data);
 		exit(1);
@@ -88,7 +83,6 @@ void	ft_help_left(t_data *data, char **map_splited, int *coin, t_size indx_p)
 		map_splited[indx_p.y][indx_p.x] = '0';
 		map_splited[indx_p.y][indx_p.x - 1] = 'P';
 		(data->cpt)++;
-
 		mlx_clear_window(data->init, data->wind);
 		ft_build_map(map_splited, *data);
 	}
@@ -97,7 +91,6 @@ void	ft_help_left(t_data *data, char **map_splited, int *coin, t_size indx_p)
 		map_splited[indx_p.y][indx_p.x] = '0';
 		map_splited[indx_p.y][indx_p.x - 1] = 'P';
 		(data->cpt)++;
-
 		(*coin)++;
 		mlx_clear_window(data->init, data->wind);
 		ft_build_map(map_splited, *data);
@@ -110,18 +103,15 @@ void	ft_mov_left(t_data *data, char **map_splited, int *coin)
 	t_size	indx_p;
 
 	indx_p = ft_position(map_splited);
-	printf ("we are in ft_mov_left !\n");
 	if (map_splited[indx_p.y][indx_p.x - 1] == 'E' && *coin != data->max_c)
 		return ;
 	if (map_splited[indx_p.y][indx_p.x - 1] == '1')
 		return ;
 	if ((*coin) == data->max_c && map_splited[indx_p.y][indx_p.x - 1] == 'E')
 	{
-		printf ("hola\n\n");
 		map_splited[indx_p.y][indx_p.x] = '0';
 		map_splited[indx_p.y][indx_p.x + 1] = 'E';
 		(data->cpt)++;
-
 		mlx_clear_window(data->init, data->wind);
 		ft_build_map(map_splited, *data);
 		exit(1);
